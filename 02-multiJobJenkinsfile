@@ -5,13 +5,14 @@ pipeline {
             parallel{
                 stage('Job1'){
                     steps{
+                        sh('sleep 5')
                         echo "Steps in Job1"
                     }
                 }
                 stage('Job2'){
                     steps{
                         echo "Steps in Job2"
-
+                        sh('sleep 7')
                         timeout(time: 5, unit: 'SECONDS') {
                             echo "Timeout completed"
                         }
@@ -21,3 +22,4 @@ pipeline {
         }
     }
 }
+
